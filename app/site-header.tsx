@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { productCategories } from "./catalog";
+import { productCatalog } from "./catalog";
 
 function PhoneIcon() {
   return (
@@ -54,7 +54,7 @@ export default function SiteHeader() {
 
         <nav className={`main-navigation${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
           <a className="nav-link" href="/" onClick={closeMenus}>Home</a>
-          <a className="nav-link" href="#about" onClick={closeMenus}>About Us</a>
+          <a className="nav-link" href="/about" onClick={closeMenus}>About Us</a>
 
           <div
             className={`products-nav${productsOpen ? " is-open" : ""}`}
@@ -73,18 +73,18 @@ export default function SiteHeader() {
             <div className="mega-menu" id="product-menu">
               <div className="mega-menu-heading">
                 <span>PRC COLLECTION</span>
-                <a href="#products" onClick={closeMenus}>View all products <span aria-hidden="true">↗</span></a>
+                <a href="/#products" onClick={closeMenus}>View all products <span aria-hidden="true">↗</span></a>
               </div>
               <div className="product-grid">
-                {productCategories.map((product, index) => (
+                {productCatalog.map((product) => (
                   <a
                     className="product-menu-link"
-                    href={`#category-${index + 1}`}
-                    key={product}
+                    href={`/products/${product.slug}`}
+                    key={product.slug}
                     onClick={closeMenus}
                   >
-                    <span className="product-index">{String(index + 1).padStart(2, "0")}</span>
-                    <span>{product}</span>
+                    <span className="product-index">{String(product.number).padStart(2, "0")}</span>
+                    <span>{product.name}</span>
                     <span className="product-arrow" aria-hidden="true">↗</span>
                   </a>
                 ))}
@@ -92,8 +92,8 @@ export default function SiteHeader() {
             </div>
           </div>
 
-          <a className="nav-link" href="#quality" onClick={closeMenus}>Why PRC</a>
-          <a className="nav-link" href="#contact" onClick={closeMenus}>Contact Us</a>
+          <a className="nav-link" href="/why-prc" onClick={closeMenus}>Why PRC</a>
+          <a className="nav-link" href="/contact" onClick={closeMenus}>Contact Us</a>
         </nav>
 
         <a className="header-contact" href="tel:+919643332209" aria-label="Call PRC Sanitary Ware at plus 91 96433 32209">

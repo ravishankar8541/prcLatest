@@ -57,7 +57,7 @@ export default function TestimonialSection() {
   const secondCard = testimonials[(currentIndex + 1) % total];
 
   return (
-    <section className="relative z-10 w-full bg-[#f7f6f1] pt-16 lg:pt-20 pb-20 sm:pb-24 lg:pb-28 clear-both border-b border-[#e8e2d7] select-none">
+    <section className="relative z-10 w-full bg-[#f0eee7] pt-16 lg:pt-20 pb-20 sm:pb-24 lg:pb-28 clear-both border-b border-[#e8e2d7] select-none">
       {/* Top part - testimonials with constrained width */}
       <div className="w-full max-w-[98%] xl:max-w-7xl mx-auto px-3 sm:px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
@@ -76,7 +76,7 @@ export default function TestimonialSection() {
             </p>
             <Link
               href="/"
-              className="inline-flex items-center gap-3 rounded-full border border-[#090908] bg-[#090908] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_8px_22px_rgba(23,23,21,0.14)] transition-all duration-300 hover:border-[#f5c400] hover:bg-[#f5c400] hover:text-[#090908] active:scale-95"
+              className="testimonial-read-more inline-flex items-center gap-3 rounded-full border border-[#090908] bg-[#090908] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_8px_22px_rgba(23,23,21,0.14)] transition-all duration-300 hover:border-[#f5c400] hover:bg-[#f5c400] hover:text-[#090908] active:scale-95"
             >
               <span>Read more</span>
               <svg
@@ -151,7 +151,7 @@ export default function TestimonialSection() {
                   <img
                     src={firstCard.image}
                     alt={firstCard.name}
-                    className="h-full w-full rounded-full bg-[#f7f6f1] object-cover"
+                    className="h-full w-full rounded-full bg-[#f0eee7] object-cover"
                   />
                 </div>
                 <h3 className="text-[16px] font-semibold leading-tight text-[#191916]">
@@ -175,7 +175,7 @@ export default function TestimonialSection() {
                   <img
                     src={secondCard.image}
                     alt={secondCard.name}
-                    className="h-full w-full rounded-full bg-[#f7f6f1] object-cover"
+                    className="h-full w-full rounded-full bg-[#f0eee7] object-cover"
                   />
                 </div>
                 <h3 className="text-[16px] font-semibold leading-tight text-[#191916]">

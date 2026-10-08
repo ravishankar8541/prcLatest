@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { productCategories } from "../catalog";
+import { productCatalog } from "../catalog";
 
 function ArrowIcon() {
   return (
@@ -157,10 +157,10 @@ function WhatsAppIcon() {
 export default function SiteFooter() {
   const quickLinks = [
     { label: "Home", href: "/" },
-    { label: "About Us", href: "#about" },
-    { label: "Why PRC", href: "#quality" },
-    { label: "Products", href: "#products" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "About Us", href: "/about" },
+    { label: "Why PRC", href: "/why-prc" },
+    { label: "Products", href: "/#products" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -299,15 +299,15 @@ export default function SiteFooter() {
 
             <ul className="space-y-3">
 
-              {productCategories.slice(0, 7).map((product, index) => (
-                <li key={product}>
+              {productCatalog.slice(0, 7).map((product) => (
+                <li key={product.slug}>
 
                   <a
-                    href={`#category-${index + 1}`}
+                    href={`/products/${product.slug}`}
                     className="group flex items-center gap-3 text-[14px] text-white/60 transition-colors duration-300 hover:text-white"
                   >
 
-                    <span>{product}</span>
+                    <span>{product.name}</span>
 
                     <span className="ml-auto opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                       <ArrowIcon />
@@ -321,7 +321,7 @@ export default function SiteFooter() {
             </ul>
 
             <a
-              href="#products"
+              href="/#products"
               className="mt-7 inline-flex items-center gap-3 border-b border-white/30 pb-2 text-[12px] font-medium uppercase tracking-[0.15em] text-white transition-colors hover:border-white"
             >
               View all products
@@ -368,7 +368,7 @@ export default function SiteFooter() {
 
               {/* EMAIL */}
               <a
-                href="mailto:info@prcsanitaryware.com"
+                href="mailto:prcsanitaryware@gmail.com"
                 className="group flex gap-4"
               >
 
@@ -382,7 +382,7 @@ export default function SiteFooter() {
                   </span>
 
                   <span className="mt-1 block break-all text-[14px] text-white/80 transition-colors group-hover:text-white">
-                    info@prcsanitaryware.com
+                    prcsanitaryware@gmail.com
                   </span>
                 </span>
 
@@ -400,8 +400,8 @@ export default function SiteFooter() {
                     Our Location
                   </span>
 
-                  <span className="mt-1 block max-w-[230px] text-[14px] leading-6 text-white/65">
-                    Delhi, India
+                  <span className="mt-1 block max-w-[280px] text-[14px] leading-6 text-white/65">
+                    Khasra No.-23/8/2, Opposite Shakti Tent House, Railway Road, Samaypur, Delhi - 110042
                   </span>
                 </span>
 

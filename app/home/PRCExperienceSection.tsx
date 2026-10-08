@@ -54,10 +54,12 @@ export default function PRCExperienceSection() {
         poster="/prc-hero-faucet.jpg"
         aria-hidden="true"
       >
-        <source src="/video2.mp4" type="video/mp4" />
+        <source src="/newVideo.mp4" type="video/mp4" />
       </video>
 
       <div className="prc-experience__shade" aria-hidden="true" />
     </section>
   );
 }
+
+

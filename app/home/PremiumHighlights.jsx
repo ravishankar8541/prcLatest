@@ -80,7 +80,7 @@ const ManufacturingHighlights = () => {
   ];
 
   return (
-    <section className="relative w-full bg-white text-[#171717]" data-header-theme="light">
+    <section className="relative w-full bg-[#f0eee7] text-[#171717]" data-header-theme="light">
       {/* Top Border */}
       <div className="h-px w-full bg-[#e9e5dd]" />
 

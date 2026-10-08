@@ -66,10 +66,7 @@ export default function PreFooterShowcase() {
         </div>
       </div>
 
-      <div className="prefooter-showcase__heading">
-        <p>PRC BATH FITTINGS</p>
-        <h2>Unmatched Quality and Design</h2>
-      </div>
+     
     </section>
   );
 }

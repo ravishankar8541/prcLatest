@@ -21,3 +21,21 @@ export const productCategories = [
   "PVC Connection Pipe Brass & PTMT Nut",
   "Accessories",
 ];
+
+export function slugifyProduct(name: string) {
+  return name
+    .normalize("NFKD")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export const productCatalog = productCategories.map((name, index) => ({
+  name,
+  slug: slugifyProduct(name),
+  number: index + 1,
+}));
+
+export function getProductBySlug(slug: string) {
+  return productCatalog.find((product) => product.slug === slug);
+}

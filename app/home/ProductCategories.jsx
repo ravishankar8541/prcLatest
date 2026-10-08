@@ -11,10 +11,10 @@ const categories = [
     href: "https://www.prcsanitaryware.com/product-list.php?id=3",
   },
   {
-    name: "Kitchen Sinks",
-    image:"/KITCHENSINIK/1.png",
-    alt: "PRC stainless steel kitchen sink",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=1",
+    name: "C.P. Flange",
+    image: "/C.P.Flange/1.png",
+    alt: "C.P. Flange",
+    href: "/BasinWasteCouplings/2.png",
   },
   {
     name: "C.P. Bend Showers",
@@ -23,10 +23,10 @@ const categories = [
     href: "https://www.prcsanitaryware.com/product-list.php?id=4",
   },
   {
-    name: "Health Faucet Sets",
-    image: "/C.P.HEALTHFAUATSET/1.png",
-    alt: "PRC chrome faucet in a bathroom setting",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=5",
+    name: "Kent R.O. Valve",
+    image: "/KentR.O.Valve/1.png",
+    alt: "Kent R.O. Valve",
+    href: "/KentR.O.Valve/1.png/1.png",
   },
   {
     name: "Hand Shower Sets",
@@ -36,11 +36,10 @@ const categories = [
     href: "https://www.prcsanitaryware.com/product-list.php?id=6",
   },
   {
-    name: "Basin Waste Couplings",
-    image:
-      "/BasinWasteCouplings/1.png",
-    alt: "PRC kitchen sink and stainless steel fittings",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=7",
+    name: "Spindle",
+    image: "/Spindle/1.png",
+    alt: "Spindle",
+    href: "/Spindle/1.png/1.png",
   },
 ];
 
@@ -50,7 +49,7 @@ const slides = [
   { ...categories[0], categoryIndex: 0, clone: true },
 ];
 
-const AUTOPLAY_DELAY = 3200;
+const AUTOPLAY_DELAY = 2400;
 
 export default function ProductCategories() {
   const [activeSlide, setActiveSlide] = useState(1);
