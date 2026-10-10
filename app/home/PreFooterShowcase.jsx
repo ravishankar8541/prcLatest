@@ -38,6 +38,7 @@ function ArrowIcon() {
 export default function PreFooterShowcase() {
   return (
     <section
+      data-native-cursor
       className="prefooter-showcase"
       data-header-theme="light"
       aria-label="PRC premium bath fittings"

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import BrandLoader from "./brand-loader";
-import PremiumCursor from "./premium-cursor";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +13,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en">
       <body>
         <BrandLoader />
-        <PremiumCursor />
         {children}
       </body>
     </html>

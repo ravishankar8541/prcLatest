@@ -34,7 +34,7 @@ export default function ProductShowcase() {
   }, [nextSlide]);
 
   return (
-    <section className="w-full">
+    <section data-native-cursor className="w-full">
       <div className="relative w-full overflow-hidden shadow-2xl">
         {/* Banners container */}
         <div className="relative h-auto aspect-[1791/878] lg:aspect-auto lg:h-[700px] xl:h-[800px]">

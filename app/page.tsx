@@ -1,5 +1,6 @@
 import HeroVideo from "./hero-video";
 import SiteHeader from "./site-header";
+import PremiumCursor from "./premium-cursor";
 import ManufacturingHighlights from "./home/PremiumHighlights";
 import ProductShowcase from "./home/ProductShowcase";
 import ProductCategories from "./home/ProductCategories";
@@ -12,8 +13,9 @@ import Testimonials from "./home/testimonials";
 export default function Home() {
   return (
     <main className="home-page" id="home">
+      <PremiumCursor />
       <SiteHeader />
-      <section className="hero" aria-label="PRC Sanitary Ware">
+      <section data-native-cursor className="hero" aria-label="PRC Sanitary Ware">
         <HeroVideo />
         <div className="hero-shade" aria-hidden="true" />
       </section>
