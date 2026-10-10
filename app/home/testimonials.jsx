@@ -57,9 +57,9 @@ export default function TestimonialSection() {
   const secondCard = testimonials[(currentIndex + 1) % total];
 
   return (
-    <section className="relative z-10 w-full bg-[#f0eee7] pt-16 lg:pt-20 pb-20 sm:pb-24 lg:pb-28 clear-both border-b border-[#e8e2d7] select-none">
+    <section className="testimonial-section relative z-10 w-full bg-[#f0eee7] pt-16 lg:pt-20 clear-both select-none">
       {/* Top part - testimonials with constrained width */}
-      <div className="w-full max-w-[98%] xl:max-w-7xl mx-auto px-3 sm:px-6">
+      <div className="mx-auto w-full max-w-[98%] px-3 pb-16 sm:px-6 sm:pb-20 lg:pb-24 xl:max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
           {/* Left Column: Headings & Read More CTA */}
           <div className="w-full lg:w-[32%] flex flex-col items-start text-left flex-shrink-0">
@@ -75,10 +75,10 @@ export default function TestimonialSection() {
               durability, and value of their bath fittings and sanitaryware.
             </p>
             <Link
-              href="/"
+              href="/contact"
               className="testimonial-read-more inline-flex items-center gap-3 rounded-full border border-[#090908] bg-[#090908] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_8px_22px_rgba(23,23,21,0.14)] transition-all duration-300 hover:border-[#f5c400] hover:bg-[#f5c400] hover:text-[#090908] active:scale-95"
             >
-              <span>Read more</span>
+              <span>Contact Us</span>
               <svg
                 className="w-3.5 h-3.5"
                 fill="none"
@@ -193,7 +193,6 @@ export default function TestimonialSection() {
         </div>
       </div>
 
-    
     </section>
   );
 }

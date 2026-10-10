@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const categories = [
@@ -8,38 +9,38 @@ const categories = [
     image:
       "/CpTaps/1.png",
     alt: "Chrome PRC bathroom tap",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=3",
+    href: "/products/c-p-tap-manufacturer",
   },
   {
     name: "C.P. Flange",
     image: "/C.P.Flange/1.png",
     alt: "C.P. Flange",
-    href: "/BasinWasteCouplings/2.png",
+    href: "/products/c-p-flange-manufacturer",
   },
   {
     name: "C.P. Bend Showers",
     image:"/C.P.BENDSHOWER/1.png",
     alt: "PRC bath fitting from the product collection",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=4",
+    href: "/products/c-p-bend-shower-manufacturer",
   },
   {
     name: "Kent R.O. Valve",
     image: "/KentR.O.Valve/1.png",
     alt: "Kent R.O. Valve",
-    href: "/KentR.O.Valve/1.png/1.png",
+    href: "/products/kent-r-o-valve-manufacturer",
   },
   {
     name: "Hand Shower Sets",
     image:
       "/HandShowerSets/1.png",
     alt: "PRC bath fitting from the product collection",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=6",
+    href: "/products/c-p-hand-shower-set-manufacturer",
   },
   {
     name: "Spindle",
     image: "/Spindle/1.png",
     alt: "Spindle",
-    href: "/Spindle/1.png/1.png",
+    href: "/products/spindle-manufacturer",
   },
 ];
 
@@ -177,7 +178,7 @@ export default function ProductCategories() {
             onTransitionEnd={handleTrackTransitionEnd}
           >
             {slides.map((slide, slideIndex) => (
-              <a
+              <Link
                 className={`category-tile${activeSlide === slideIndex ? " is-active" : ""}`}
                 href={slide.href}
                 key={`${slide.name}-${slideIndex}`}
@@ -193,7 +194,7 @@ export default function ProductCategories() {
                   draggable="false"
                 />
                 <span className="category-tile__name">{slide.name}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

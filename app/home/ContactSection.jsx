@@ -1,5 +1,9 @@
 "use client";
 
+import { useState } from "react";
+
+const WEB3FORMS_ACCESS_KEY = "6b03877f-77b6-4be9-893e-4c9a55eaf9cc";
+
 function ContactIcon({ type }) {
   const paths = {
     phone: (
@@ -40,22 +44,6 @@ function ArrowIcon() {
   );
 }
 
-function handleInquirySubmit(event) {
-  event.preventDefault();
-
-  const formData = new FormData(event.currentTarget);
-  const name = formData.get("name").toString().trim();
-  const email = formData.get("email").toString().trim();
-  const phone = formData.get("phone").toString().trim();
-  const message = formData.get("message").toString().trim();
-  const subject = encodeURIComponent(`Website inquiry from ${name}`);
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\n\nMessage:\n${message}`
-  );
-
-  window.location.href = `mailto:prcsanitaryware@gmail.com?subject=${subject}&body=${body}`;
-}
-
 const contactChannels = [
   {
     icon: "phone",
@@ -86,8 +74,58 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.
 
 
 export default function ContactSection() {
+  const [status, setStatus] = useState("idle");
+  const [notice, setNotice] = useState("");
+
+  async function handleInquirySubmit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    if (formData.get("botcheck")) return;
+
+    const name = formData.get("name").toString().trim();
+    const email = formData.get("email").toString().trim();
+    const phone = formData.get("phone").toString().trim();
+    const message = formData.get("message").toString().trim();
+
+    setStatus("sending");
+    setNotice("");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Website inquiry from ${name}`,
+          from_name: "PRC Sanitary Ware",
+          name,
+          email,
+          phone: phone || "Not provided",
+          message,
+        }),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to send the inquiry.");
+      }
+
+      form.reset();
+      setStatus("success");
+      setNotice("Message sent. The PRC team will get back to you.");
+    } catch {
+      setStatus("error");
+      setNotice("We could not send your message. Please call or email PRC.");
+    }
+  }
+
   return (
-    <section className="contact-section" id="contact" aria-labelledby="contact-title">
+    <section data-native-cursor className="contact-section" id="contact" aria-labelledby="contact-title">
       <div className="contact-shell">
         <div className="contact-topline">
           <span>CONTACT PRC</span>
@@ -141,6 +179,7 @@ export default function ContactSection() {
             </div>
 
             <form className="contact-form" onSubmit={handleInquirySubmit}>
+              <input className="contact-botcheck" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" />
               <label>
                 <span>Your name</span>
                 <input autoComplete="name" name="name" placeholder="e.g. Rahul Sharma" required />
@@ -157,10 +196,12 @@ export default function ContactSection() {
                 <span>How can we help?</span>
                 <textarea name="message" placeholder="Tell us about the product or project you have in mind…" required rows={4} />
               </label>
-              <button className="contact-submit" type="submit">
-                Prepare your enquiry <ArrowIcon />
+              <button className="contact-submit" type="submit" disabled={status === "sending"}>
+                {status === "sending" ? "Sending…" : "Send message"} <ArrowIcon />
               </button>
-              <p className="contact-form-note">Your email app will open with your message ready to send.</p>
+              <p className={`contact-form-note${status === "success" ? " is-success" : ""}${status === "error" ? " is-error" : ""}`} role="status">
+                {notice || "Your message is sent directly to the PRC team."}
+              </p>
             </form>
           </div>
         </div>

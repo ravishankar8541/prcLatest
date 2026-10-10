@@ -80,190 +80,53 @@ const ManufacturingHighlights = () => {
   ];
 
   return (
-    <section className="relative w-full bg-[#f0eee7] text-[#171717]" data-header-theme="light">
-      {/* Top Border */}
-      <div className="h-px w-full bg-[#e9e5dd]" />
+    <section
+      className="relative w-full overflow-hidden bg-[#f3f0e8] text-[#171613]"
+      data-header-theme="light"
+      aria-label="PRC manufacturing standards"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(197,160,90,0.16),transparent_58%)]" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#c6a15a] to-transparent" />
 
-      {/* Main Content */}
-      <div className="mx-auto w-full max-w-[1500px] px-5 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-
+      <div className="relative mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
-            <div
+            <article
               key={feature.number}
-              className={`
-                group
-                relative
-                flex
-                min-h-[205px]
-                flex-col
-                items-center
-                justify-center
-                px-6
-                py-10
-                text-center
-                transition-all
-                duration-500
-                hover:bg-[#fcfbf8]
-
-                md:min-h-[215px]
-
-                lg:min-h-[220px]
-                lg:px-8
-                lg:py-10
-
-                ${
-                  index !== features.length - 1
-                    ? "lg:border-r lg:border-[#e8e3da]"
-                    : ""
-                }
-
-                ${
-                  index < 2
-                    ? "md:border-b md:border-[#e8e3da] lg:border-b-0"
-                    : ""
-                }
-
-                ${
-                  index === 2
-                    ? "md:border-r md:border-[#e8e3da] lg:border-r"
-                    : ""
-                }
-              `}
+              className={`group relative flex min-h-[248px] flex-col items-center justify-center px-7 py-12 text-center transition-colors duration-500 hover:bg-white/70 sm:min-h-[260px] ${
+                [
+                  "border-b border-[#e4dccb] sm:border-r lg:border-b-0",
+                  "border-b border-[#e4dccb] lg:border-b-0 lg:border-r",
+                  "border-b border-[#e4dccb] sm:border-b-0 sm:border-r",
+                  "",
+                ][index]
+              }`}
             >
-              {/* Top Gold Hover Line */}
-              <span
-                className="
-                  absolute
-                  left-1/2
-                  top-0
-                  h-[2px]
-                  w-0
-                  -translate-x-1/2
-                  bg-[#c5a05a]
-                  transition-all
-                  duration-500
-                  group-hover:w-14
-                "
-              />
+              <span className="absolute left-1/2 top-0 h-px w-0 -translate-x-1/2 bg-[#c6a15a] transition-all duration-500 group-hover:w-16" />
 
-              {/* Number */}
-              <span
-                className="
-                  absolute
-                  left-6
-                  top-6
-                  text-[9px]
-                  font-semibold
-                  tracking-[0.28em]
-                  text-[#b2945b]
-                  opacity-70
-
-                  lg:left-7
-                  lg:top-6
-                "
-              >
+              <span className="absolute left-6 top-6 font-[Georgia,Times_New_Roman,serif] text-[13px] tracking-[0.18em] text-[#b08b48] lg:left-7">
                 {feature.number}
               </span>
 
-              {/* Icon */}
-              <div
-                className="
-                  relative
-                  mb-5
-                  flex
-                  h-[60px]
-                  w-[60px]
-                  shrink-0
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-[#e5e0d7]
-                  bg-[#faf9f6]
-                  text-[#1b1b1b]
-
-                  transition-all
-                  duration-500
-
-                  group-hover:-translate-y-1
-                  group-hover:border-[#c5a05a]
-                  group-hover:bg-white
-                  group-hover:text-[#b08b48]
-                  group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)]
-                "
-              >
-                {feature.icon}
-
-                {/* Gold Dot */}
-                <span
-                  className="
-                    absolute
-                    -right-1
-                    -top-1
-                    h-2
-                    w-2
-                    rounded-full
-                    bg-[#c5a05a]
-                    opacity-0
-                    transition-opacity
-                    duration-500
-                    group-hover:opacity-100
-                  "
-                />
+              <div className="relative mb-6 flex h-[78px] w-[78px] items-center justify-center rounded-full border border-[#e7d7b0] bg-white shadow-[0_14px_34px_rgba(23,22,19,0.06)] transition-transform duration-500 group-hover:-translate-y-1">
+                <div className="flex h-[62px] w-[62px] items-center justify-center rounded-full border border-[#f1e6cf] bg-[#fbfaf6] text-[#8a6822] transition-colors duration-500 group-hover:border-[#d4b36a] group-hover:text-[#6f5414] [&_svg]:h-7 [&_svg]:w-7">
+                  {feature.icon}
+                </div>
               </div>
 
-              {/* Text */}
-              <div className="relative z-10">
-                <h3
-                  className="
-                    text-[14px]
-                    font-medium
-                    leading-6
-                    tracking-[-0.01em]
-                    text-[#171717]
-                    sm:text-[15px]
-                  "
-                >
-                  {feature.title}
-                </h3>
-
-                <p
-                  className="
-                    mt-1
-                    text-[12px]
-                    font-normal
-                    leading-5
-                    tracking-[0.025em]
-                    text-[#77736c]
-                    sm:text-[13px]
-                  "
-                >
-                  {feature.subtitle}
-                </p>
-              </div>
-
-              {/* Bottom Line */}
-              <div
-                className="
-                  mt-5
-                  h-px
-                  w-7
-                  bg-[#d9d4ca]
-                  transition-all
-                  duration-500
-                  group-hover:w-12
-                  group-hover:bg-[#c5a05a]
-                "
-              />
-            </div>
+              <h3 className="font-[Georgia,Times_New_Roman,serif] text-[22px] font-normal leading-none tracking-[-0.03em] text-[#1b1914] sm:text-[24px]">
+                {feature.title}
+              </h3>
+              <p className="mt-3 max-w-[16rem] text-[13px] leading-5 tracking-[0.04em] text-[#6f6a61]">
+                {feature.subtitle}
+              </p>
+              <span className="mt-5 h-px w-8 bg-[#d7c49a] transition-all duration-500 group-hover:w-14 group-hover:bg-[#c6a15a]" />
+            </article>
           ))}
-
         </div>
       </div>
 
-      {/* Bottom Border */}
-      <div className="h-px w-full bg-[#e9e5dd]" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#c6a15a] to-transparent" />
     </section>
   );
 };

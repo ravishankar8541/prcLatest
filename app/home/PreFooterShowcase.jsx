@@ -1,27 +1,29 @@
+import Link from "next/link";
+
 const showcaseItems = [
   {
-    title: "C.P. Taps",
+    title: "C.P. Bend Shower",
     image: "/mid2.png",
-    alt: "Chrome PRC bath tap",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=3",
+    alt: "PRC chrome overhead bend shower",
+    href: "/products/c-p-bend-shower-manufacturer",
   },
   {
-    title: "Kitchen Sinks",
+    title: "C.P. Tap",
     image: "/mid3.png",
-    alt: "PRC stainless steel kitchen sink",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=1",
+    alt: "PRC chrome basin tap",
+    href: "/products/c-p-tap-manufacturer",
   },
   {
-    title: "Bath Showers",
+    title: "Kitchen Sink",
     image: "/mid4.png",
-    alt: "PRC bath shower fitting",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=4",
+    alt: "PRC stainless steel kitchen sink",
+    href: "/products/kitchen-sink-manufacturer",
   },
   {
-    title: "Health Faucets",
+    title: "C.P. Wall Mixer",
     image: "/mid5.png",
-    alt: "PRC chrome health faucet",
-    href: "https://www.prcsanitaryware.com/product-list.php?id=5",
+    alt: "PRC chrome wall mixer tap",
+    href: "/products/c-p-tap-manufacturer",
   },
 ];
 
@@ -52,14 +54,14 @@ export default function PreFooterShowcase() {
 
           <div className="prefooter-showcase__grid">
             {showcaseItems.map((item) => (
-              <article className="prefooter-showcase__item" key={item.title}>
-                <a className="prefooter-showcase__image" href={item.href} aria-label={`View ${item.title}`}>
+              <article className="prefooter-showcase__item" key={item.image}>
+                <Link className="prefooter-showcase__image" href={item.href} aria-label={`View ${item.title}`}>
                   <img src={item.image} alt={item.alt} loading="lazy" />
-                </a>
-                <a className="prefooter-showcase__more" href={item.href}>
+                </Link>
+                <Link className="prefooter-showcase__more" href={item.href}>
                   <span>View More</span>
                   <ArrowIcon />
-                </a>
+                </Link>
               </article>
             ))}
           </div>

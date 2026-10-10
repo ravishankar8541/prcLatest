@@ -14,7 +14,7 @@ export type KitchenSinkProduct = {
   packing?: string;
 };
 
-const image = (path: string) => `https://ik.imagekit.io/omxudibgf/${path}.jpg`;
+const image = (id: number) => `/kitchen-sinks/${String(id).padStart(2, "0")}.jpg`;
 
 export const kitchenSinkProducts: KitchenSinkProduct[] = [
   {
@@ -23,7 +23,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Hand Made",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "24 × 18 × 10 in",
-    image: image("a22cce4cd317da552b0366de6d18ccd2_G-fEbFxko"),
+    image: image(1),
     specs: [
       { label: "Sink Type", value: "Single" },
       { label: "Usage/Application", value: "Kitchen" },
@@ -44,7 +44,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Diamond",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "24 × 18 × 9 in",
-    image: image("d0435fdd0f0cc98b4867b0b4e782b288_a_WIBRKm8"),
+    image: image(2),
     specs: [
       { label: "Features", value: "Rustproof" },
       { label: "I Deal In", value: "New Only" },
@@ -70,7 +70,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Diamond",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "20 × 17 × 8 in",
-    image: image("9abb1a039d7530f65334273822d57d95_AY2racrg8"),
+    image: image(3),
     specs: [
       { label: "Sink Type", value: "Single" },
       { label: "Installation Type", value: "Kitchen Slap" },
@@ -88,7 +88,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Diamond",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "18 × 16 × 8 in",
-    image: image("87dab7322c069fc3f8c0d162435b9a4d_eNA6NTt58"),
+    image: image(4),
     specs: [
       { label: "Installation Type", value: "Kichen Slap" },
       { label: "Shape", value: "Oval" },
@@ -106,7 +106,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Premium",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "24 × 18 × 10 in",
-    image: image("781d13d2043dd47ed6ee0f5ea75a2aaa_NdXV0UCtF"),
+    image: image(5),
     specs: [
       { label: "Sink Type", value: "Single" },
       { label: "Shape", value: "Rectangular" },
@@ -130,7 +130,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Premium",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "20 × 17 × 8 in",
-    image: image("76df2c1cff30ef3e4c7d7d5f14cdcfd8_IZv8ZfuFk"),
+    image: image(6),
     specs: [
       { label: "Material Grade", value: "304" },
       { label: "Material", value: "Stainless Steel" },
@@ -154,7 +154,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Premium",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "18 × 16 × 8 in",
-    image: image("077720fbbf60d0bb8f68b93d003db66a_ZFsS7jEyj"),
+    image: image(7),
     specs: [
       { label: "Bowl Size", value: "16\"x14\"" },
       { label: "Is It Portable", value: "Portable" },
@@ -177,7 +177,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Deluxe",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "24 × 18 × 9 in",
-    image: image("b777fb33522e7f44be10c8cba985a665_hA25YHuXB"),
+    image: image(8),
     specs: [
       { label: "I Deal In", value: "New Only" },
       { label: "Color", value: "Silver" },
@@ -193,7 +193,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Deluxe",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "20 × 17 × 8 in",
-    image: image("24c266eb244ca13c727671437ff5f1ca_fSuxMgbpR"),
+    image: image(9),
     specs: [
       { label: "Installation Type", value: "Kitchen Slab" },
       { label: "Color", value: "Silver" },
@@ -215,7 +215,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Deluxe",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "18 × 16 × 8 in",
-    image: image("e16107f40560b67b105ff7a1193a5184_bLDqVhi8L"),
+    image: image(10),
     specs: [
       { label: "Material", value: "Stainless Steel" },
       { label: "I Deal In", value: "New Only" },
@@ -242,7 +242,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Classic",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "24 × 18 × 8 in",
-    image: image("850880e045dfe6ab98f80bd7f995a613_5TS6Igcye"),
+    image: image(11),
     specs: [
       { label: "Finish Type", value: "Glossy" },
       { label: "Drain Grooves", value: "Yes" },
@@ -264,7 +264,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Classic",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "20 × 17 × 8 in",
-    image: image("c18f53897860d7e0c1cf54774f21328c_I1_GKPH0C"),
+    image: image(12),
     specs: [
       { label: "Country of Origin", value: "Made in India" },
       { label: "Model Name/Number", value: "Royal Classic" },
@@ -289,7 +289,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Royal Classic",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "18 × 16 × 8 in",
-    image: image("752239eae1f8df4bad90c73652e67b24_bJVSKv8kq"),
+    image: image(13),
     specs: [
       { label: "Installation Type", value: "Kitchen Slab" },
       { label: "Drain Grooves", value: "Yes" },
@@ -313,7 +313,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Premium",
     name: "PRC Kitchen Sink",
     size: "24 × 18 × 8 in",
-    image: image("e0be4a4a06747f3002b3d2a542cc53a1_eM6Q-kfWt"),
+    image: image(14),
     specs: [],
   },
   {
@@ -322,7 +322,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Premium",
     name: "PRC Kitchen Sink",
     size: "24 × 18 × 9 in",
-    image: image("e9cac0296787071c2372fda0988e4916_AfRRbKYO2"),
+    image: image(15),
     specs: [],
   },
   {
@@ -331,7 +331,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Premium",
     name: "PRC Kitchen Sink",
     size: "22 × 18 × 8 in",
-    image: image("e3d6a6ec2c0179f827f7a431164c346a_tixpTCK4mf"),
+    image: image(16),
     specs: [],
   },
   {
@@ -340,7 +340,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Premium",
     name: "PRC Kitchen Sink",
     size: "20 × 17 × 8 in",
-    image: image("ae6cd328ecf98d1b5bd11aff00a76aa7_6GQK3j_Vc0"),
+    image: image(17),
     specs: [],
   },
   {
@@ -349,7 +349,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Premium",
     name: "PRC Kitchen Sink",
     size: "18 × 16 × 8 in",
-    image: image("7d32310d6ba6656afd4f90a265d66979_bQWBYXKIQ"),
+    image: image(18),
     specs: [],
   },
   {
@@ -358,7 +358,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Premium",
     name: "PRC Kitchen Sink",
     size: "37 × 18 × 8 in",
-    image: image("7988e896b7889faa96ed5badd755d7fa_nm70eXuL0"),
+    image: image(19),
     specs: [],
   },
   {
@@ -367,7 +367,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Classic",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "24 × 18 × 8 in",
-    image: image("c2e0dfbb3cfb9c7baab008bfa8827531_GPAQH37f2"),
+    image: image(20),
     specs: [
       { label: "Bowl Size", value: "20 x 16 inch" },
       { label: "Country of Origin", value: "Made in India" },
@@ -386,7 +386,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Classic",
     name: "PRC Kitchen Sink",
     size: "24 × 18 × 9 in",
-    image: image("428ae8f0f4bbdf6b1c35b23cfd736717_Im3MT_O75"),
+    image: image(21),
     specs: [],
   },
   {
@@ -395,7 +395,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Classic",
     name: "PRC Kitchen Sink",
     size: "20 × 17 × 8 in",
-    image: image("6c21466082ae29efec8c3a1170c79ae6_fuAbr3mCf"),
+    image: image(22),
     specs: [],
   },
   {
@@ -404,7 +404,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Classic",
     name: "PRC Kitchen Sink",
     size: "18 × 16 × 8 in",
-    image: image("85746cd1594c79f480fece289eec8904_jgqgDluhx"),
+    image: image(23),
     specs: [],
   },
   {
@@ -413,7 +413,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Classic",
     name: "PRC Kitchen Sink",
     size: "37 × 18 × 8 in",
-    image: image("e984e98f13dcb5a7b34c082694ac7178_1H0-WNmWI"),
+    image: image(24),
     specs: [],
   },
   {
@@ -422,7 +422,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Classic",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "15 × 12 × 7 in",
-    image: image("18a0bc66086a8eb07160911592923a4f_sABVwiUvC"),
+    image: image(25),
     specs: [
       { label: "I Deal In", value: "New Only" },
       { label: "Country of Origin", value: "Made in India" },
@@ -443,7 +443,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Classic",
     name: "PRC Stainless Steel Kitchen Sink",
     size: "14 × 16 × 7 in",
-    image: image("87fc193800d3d6111112a572ef673a93_yZYlQcJu0S"),
+    image: image(26),
     specs: [
       { label: "Finish Type", value: "Glossy" },
       { label: "Color", value: "Silver" },
@@ -465,7 +465,7 @@ export const kitchenSinkProducts: KitchenSinkProduct[] = [
     variant: "Classic",
     name: "PRC Kitchen Sink",
     size: "12 × 12 × 7 in",
-    image: image("6d8601d82d764554c8430f34202031b1_8fyXb6mX1"),
+    image: image(27),
     specs: [],
   },
 ];

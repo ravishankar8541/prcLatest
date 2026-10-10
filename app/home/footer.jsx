@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import styles from "./footer.module.css";
 import { productCatalog } from "../catalog";
 
 function ArrowIcon() {
@@ -164,337 +166,99 @@ export default function SiteFooter() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[#0b0b0b] text-white">
-
-      {/* =========================================================
-          PREMIUM TOP LINE
-      ========================================================== */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-
-      {/* =========================================================
-          MAIN FOOTER
-      ========================================================== */}
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-10">
-
-        <div className="grid grid-cols-1 gap-12 py-16 md:grid-cols-2 lg:grid-cols-12 lg:gap-10 lg:py-20">
-
-          {/* =====================================================
-              BRAND COLUMN
-          ====================================================== */}
-          <div className="lg:col-span-4">
-
-            <a
-              href="/"
-              className="group inline-block"
-              aria-label="PRC Bath Fittings Home"
-            >
-              <div className="relative flex h-[72px] w-[160px] items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]">
-                <Image
-                  src="/prcNewLogo.png"
-                  alt="PRC Bath Fittings"
-                  width={250}
-                  height={124}
-                  className="h-auto w-full object-contain"
-                />
-              </div>
-            </a>
-
-            <div className="mt-7 max-w-md">
-
-              <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/45">
-                Premium Bath Fittings
-              </p>
-
-              <h2 className="mt-3 font-serif text-2xl leading-tight text-white sm:text-[28px]">
-                Designed for modern
-                <br />
-                spaces.
-              </h2>
-
-              <p className="mt-5 max-w-sm text-[14px] leading-7 text-white/55">
-                PRC Bath Fittings brings together refined design, dependable
-                performance and thoughtful craftsmanship to create bathroom
-                solutions for contemporary spaces.
-              </p>
-
-            </div>
-
-            {/* SOCIAL ICONS */}
-            <div className="mt-7 flex items-center gap-3">
-
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/60 transition-all duration-300 hover:border-white/30 hover:bg-white hover:text-black"
-              >
-                <FacebookIcon />
-              </a>
-
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/60 transition-all duration-300 hover:border-white/30 hover:bg-white hover:text-black"
-              >
-                <InstagramIcon />
-              </a>
-
-              <a
-                href="https://wa.me/919643332209"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/60 transition-all duration-300 hover:border-white/30 hover:bg-white hover:text-black"
-              >
+    <footer data-native-cursor className={styles.footer}>
+      <div className={styles.inner}>
+        <div className={styles.main}>
+          <div className={styles.brand}>
+            <Link href="/" className={styles.logo} aria-label="PRC Bath Fittings home">
+              <Image src="/prcNewLogo.png" alt="PRC Bath Fittings" width={250} height={124} />
+            </Link>
+            <p className={styles.eyebrow}>Premium bath fittings</p>
+            <h2 className={styles.brandHeading}>
+              Designed for modern<br /><em>spaces.</em>
+            </h2>
+            <p className={styles.description}>
+              Refined design. Dependable performance. Thoughtfully crafted bath
+              fittings that bring every detail of your space together.
+            </p>
+            <div className={styles.socials} aria-label="Follow PRC">
+              <a href="#" aria-label="Facebook"><FacebookIcon /></a>
+              <a href="#" aria-label="Instagram"><InstagramIcon /></a>
+              <a href="https://wa.me/919643332209" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <WhatsAppIcon />
               </a>
-
             </div>
-
           </div>
 
-          {/* =====================================================
-              QUICK LINKS
-          ====================================================== */}
-          <div className="lg:col-span-2">
-
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-7 bg-white/30" />
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60">
-                Navigation
-              </h3>
-            </div>
-
-            <ul className="space-y-4">
-
+          <nav className={styles.column} aria-label="Footer navigation">
+            <h3 className={styles.columnHeading}>Explore PRC</h3>
+            <ul className={styles.links}>
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="group flex items-center justify-between border-b border-white/[0.06] pb-3 text-[14px] text-white/65 transition-colors duration-300 hover:text-white"
-                  >
-                    <span>{link.label}</span>
-
-                    <span className="translate-x-[-4px] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                      <ArrowIcon />
-                    </span>
-                  </a>
+                  <Link href={link.href}><span>{link.label}</span><ArrowIcon /></Link>
                 </li>
               ))}
-
             </ul>
+          </nav>
 
-          </div>
-
-          {/* =====================================================
-              PRODUCTS
-          ====================================================== */}
-          <div className="lg:col-span-3">
-
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-7 bg-white/30" />
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60">
-                PRC Collection
-              </h3>
-            </div>
-
-            <ul className="space-y-3">
-
+          <nav className={styles.column} aria-label="Footer product collection">
+            <h3 className={styles.columnHeading}>Our collection</h3>
+            <ul className={styles.links}>
               {productCatalog.slice(0, 7).map((product) => (
                 <li key={product.slug}>
-
-                  <a
-                    href={`/products/${product.slug}`}
-                    className="group flex items-center gap-3 text-[14px] text-white/60 transition-colors duration-300 hover:text-white"
-                  >
-
-                    <span>{product.name}</span>
-
-                    <span className="ml-auto opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                      <ArrowIcon />
-                    </span>
-
-                  </a>
-
+                  <Link href={`/products/${product.slug}`}><span>{product.name}</span><ArrowIcon /></Link>
                 </li>
               ))}
-
             </ul>
+            <Link className={styles.collectionLink} href="/#products">
+              View the collection <ArrowIcon />
+            </Link>
+          </nav>
 
-            <a
-              href="/#products"
-              className="mt-7 inline-flex items-center gap-3 border-b border-white/30 pb-2 text-[12px] font-medium uppercase tracking-[0.15em] text-white transition-colors hover:border-white"
-            >
-              View all products
-              <ArrowIcon />
-            </a>
-
-          </div>
-
-          {/* =====================================================
-              CONTACT
-          ====================================================== */}
-          <div className="lg:col-span-3">
-
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-7 bg-white/30" />
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60">
-                Contact
-              </h3>
-            </div>
-
-            <div className="space-y-6">
-
-              {/* PHONE */}
-              <a
-                href="tel:+919643332209"
-                className="group flex gap-4"
-              >
-
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/60 transition-all duration-300 group-hover:border-white/30 group-hover:bg-white group-hover:text-black">
-                  <PhoneIcon />
-                </span>
-
-                <span>
-                  <span className="block text-[10px] uppercase tracking-[0.18em] text-white/35">
-                    Call Us
-                  </span>
-
-                  <span className="mt-1 block text-[15px] text-white/80 transition-colors group-hover:text-white">
-                    +91 96433 32209
-                  </span>
-                </span>
-
+          <div className={styles.contact}>
+            <h3 className={styles.columnHeading}>Let&apos;s connect</h3>
+            <div className={styles.contactDetails}>
+              <a href="tel:+919643332209" className={styles.contactItem}>
+                <span className={styles.contactIcon}><PhoneIcon /></span>
+                <span><span className={styles.contactLabel}>Call us</span><span className={styles.contactValue}>+91 96433 32209</span></span>
               </a>
-
-              {/* EMAIL */}
-              <a
-                href="mailto:prcsanitaryware@gmail.com"
-                className="group flex gap-4"
-              >
-
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/60 transition-all duration-300 group-hover:border-white/30 group-hover:bg-white group-hover:text-black">
-                  <MailIcon />
-                </span>
-
-                <span>
-                  <span className="block text-[10px] uppercase tracking-[0.18em] text-white/35">
-                    Email
-                  </span>
-
-                  <span className="mt-1 block break-all text-[14px] text-white/80 transition-colors group-hover:text-white">
-                    prcsanitaryware@gmail.com
-                  </span>
-                </span>
-
+              <a href="mailto:prcsanitaryware@gmail.com" className={styles.contactItem}>
+                <span className={styles.contactIcon}><MailIcon /></span>
+                <span><span className={styles.contactLabel}>Write to us</span><span className={styles.contactValue}>prcsanitaryware@gmail.com</span></span>
               </a>
-
-              {/* LOCATION */}
-              <div className="flex gap-4">
-
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/60">
-                  <LocationIcon />
-                </span>
-
+              <div className={styles.contactItem}>
+                <span className={styles.contactIcon}><LocationIcon /></span>
                 <span>
-                  <span className="block text-[10px] uppercase tracking-[0.18em] text-white/35">
-                    Our Location
-                  </span>
-
-                  <span className="mt-1 block max-w-[280px] text-[14px] leading-6 text-white/65">
-                    Khasra No.-23/8/2, Opposite Shakti Tent House, Railway Road, Samaypur, Delhi - 110042
+                  <span className={styles.contactLabel}>Visit us</span>
+                  <span className={styles.contactValue}>
+                    Khasra No.-23/8/2, Opposite Shakti Tent House, Railway Road,
+                    Samaypur, Delhi - 110042
                   </span>
                 </span>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
 
-        {/* =======================================================
-            CTA STRIP
-        ======================================================== */}
-        <div className="border-y border-white/[0.08] py-7">
-
-          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-
-            <div>
-
-              <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-white/35">
-                Need assistance?
-              </p>
-
-              <p className="mt-2 text-[16px] text-white/75">
-                Talk to our team about your bathroom fitting requirements.
-              </p>
-
-            </div>
-
-            <a
-              href="tel:+919643332209"
-              className="group inline-flex w-fit items-center gap-4 border border-white/20 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-300 hover:bg-white hover:text-black"
-            >
-              Get in touch
-
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                <ArrowIcon />
-              </span>
-            </a>
-
+        <div className={styles.cta}>
+          <div>
+            <p className={styles.eyebrow}>The finishing touch to your space</p>
+            <p className={styles.ctaHeading}>Good spaces begin with <em>great details.</em></p>
           </div>
-
+          <a href="tel:+919643332209" className={styles.ctaButton}>
+            Let&apos;s talk <span><ArrowIcon /></span>
+          </a>
         </div>
 
-        {/* =======================================================
-            BOTTOM BAR
-        ======================================================== */}
-        <div className="flex flex-col gap-4 py-6 text-[11px] text-white/35 sm:flex-row sm:items-center sm:justify-between">
-
-          <p>
-            © {new Date().getFullYear()} PRC Bath Fittings. All rights reserved.
-          </p>
-
-          <div className="flex flex-wrap gap-6">
-
-            <a
-              href="#"
-              className="transition-colors hover:text-white"
-            >
-              Privacy Policy
-            </a>
-
-            <a
-              href="#"
-              className="transition-colors hover:text-white"
-            >
-              Terms & Conditions
-            </a>
-
-            <span className="text-white/20">
-              Designed & Developed by Viral Ads Media
-            </span>
-
+        <div className={styles.bottom}>
+          <p>&copy; {new Date().getFullYear()} PRC Bath Fittings. All rights reserved.</p>
+          <div className={styles.legal}>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
           </div>
-
+          <span className={styles.credit}>Designed &amp; Developed by <span>Viral Ads Media</span></span>
         </div>
-
       </div>
-
-      {/* =========================================================
-          DECORATIVE BACKGROUND
-      ========================================================== */}
-      <div
-        className="pointer-events-none absolute -bottom-32 -right-32 h-[420px] w-[420px] rounded-full border border-white/[0.025]"
-        aria-hidden="true"
-      />
-
-      <div
-        className="pointer-events-none absolute -bottom-48 -right-48 h-[620px] w-[620px] rounded-full border border-white/[0.02]"
-        aria-hidden="true"
-      />
-
     </footer>
   );
 }

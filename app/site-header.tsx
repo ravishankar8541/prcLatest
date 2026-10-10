@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { productCatalog } from "./catalog";
 
 function PhoneIcon() {
@@ -16,6 +17,23 @@ export default function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
+  const closeProductsTimer = useRef<number | null>(null);
+
+  const openProducts = () => {
+    if (closeProductsTimer.current !== null) {
+      window.clearTimeout(closeProductsTimer.current);
+      closeProductsTimer.current = null;
+    }
+    setProductsOpen(true);
+  };
+
+  const scheduleCloseProducts = () => {
+    if (closeProductsTimer.current !== null) window.clearTimeout(closeProductsTimer.current);
+    closeProductsTimer.current = window.setTimeout(() => {
+      setProductsOpen(false);
+      closeProductsTimer.current = null;
+    }, 220);
+  };
 
   useEffect(() => {
     const updateScrollState = () => {
@@ -34,11 +52,11 @@ export default function SiteHeader() {
   };
 
   return (
-    <header className={`site-header${isScrolled ? " is-scrolled" : ""}${menuOpen ? " is-menu-open" : ""}`}>
+    <header data-native-cursor className={`site-header${isScrolled ? " is-scrolled" : ""}${menuOpen ? " is-menu-open" : ""}`}>
       <div className="header-shell">
-        <a className="brand-mark" href="/" aria-label="PRC Bath Fittings home" onClick={closeMenus}>
+        <Link className="brand-mark" href="/" aria-label="PRC Bath Fittings home" onClick={closeMenus}>
           <Image src="/prcNewLogo.png" alt="PRC Bath Fittings" width={250} height={124} priority />
-        </a>
+        </Link>
 
         <button
           className={`menu-toggle${menuOpen ? " is-open" : ""}`}
@@ -53,13 +71,13 @@ export default function SiteHeader() {
         </button>
 
         <nav className={`main-navigation${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
-          <a className="nav-link" href="/" onClick={closeMenus}>Home</a>
-          <a className="nav-link" href="/about" onClick={closeMenus}>About Us</a>
+          <Link className="nav-link" href="/" onClick={closeMenus}>Home</Link>
+          <Link className="nav-link" href="/about" onClick={closeMenus}>About Us</Link>
 
           <div
             className={`products-nav${productsOpen ? " is-open" : ""}`}
-            onMouseEnter={() => setProductsOpen(true)}
-            onMouseLeave={() => setProductsOpen(false)}
+            onMouseEnter={openProducts}
+            onMouseLeave={scheduleCloseProducts}
           >
             <button
               className="nav-link products-trigger"
@@ -73,11 +91,11 @@ export default function SiteHeader() {
             <div className="mega-menu" id="product-menu">
               <div className="mega-menu-heading">
                 <span>PRC COLLECTION</span>
-                <a href="/#products" onClick={closeMenus}>View all products <span aria-hidden="true">↗</span></a>
+                <Link href="/#products" onClick={closeMenus}>View all products <span aria-hidden="true">↗</span></Link>
               </div>
               <div className="product-grid">
                 {productCatalog.map((product) => (
-                  <a
+                  <Link
                     className="product-menu-link"
                     href={`/products/${product.slug}`}
                     key={product.slug}
@@ -86,14 +104,14 @@ export default function SiteHeader() {
                     <span className="product-index">{String(product.number).padStart(2, "0")}</span>
                     <span>{product.name}</span>
                     <span className="product-arrow" aria-hidden="true">↗</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
           </div>
 
-          <a className="nav-link" href="/why-prc" onClick={closeMenus}>Why PRC</a>
-          <a className="nav-link" href="/contact" onClick={closeMenus}>Contact Us</a>
+          <Link className="nav-link" href="/why-prc" onClick={closeMenus}>Why PRC</Link>
+          <Link className="nav-link" href="/contact" onClick={closeMenus}>Contact Us</Link>
         </nav>
 
         <a className="header-contact" href="tel:+919643332209" aria-label="Call PRC Sanitary Ware at plus 91 96433 32209">

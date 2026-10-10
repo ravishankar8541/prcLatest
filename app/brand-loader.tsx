@@ -73,11 +73,10 @@ export default function BrandLoader() {
           />
         </div>
 
+        <span className="brand-loader__rule" aria-hidden="true" />
         <p className="brand-loader__descriptor">SANITARYWARE · BATH FITTINGS</p>
 
-        <div className="brand-loader__indicator" aria-hidden="true">
-          <span />
-          <span />
+        <div className="brand-loader__progress" aria-hidden="true">
           <span />
         </div>
 

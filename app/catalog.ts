@@ -32,7 +32,7 @@ export function slugifyProduct(name: string) {
 
 export const productCatalog = productCategories.map((name, index) => ({
   name,
-  slug: slugifyProduct(name),
+  slug: `${slugifyProduct(name)}-manufacturer`,
   number: index + 1,
 }));
 
