@@ -41,7 +41,6 @@ export default function PRCExperienceSection() {
 
   return (
     <section
-      data-native-cursor
       className={`prc-experience${hasRevealed ? " is-revealed" : ""}`}
       ref={sectionRef}
     >

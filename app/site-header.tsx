@@ -5,18 +5,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { productCatalog } from "./catalog";
 
-function PhoneIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6.6 3.8 9 3.2a1.2 1.2 0 0 1 1.4.7l1.1 2.7a1.2 1.2 0 0 1-.3 1.4l-1.4 1.2a13.7 13.7 0 0 0 5 5l1.2-1.4a1.2 1.2 0 0 1 1.4-.3l2.7 1.1a1.2 1.2 0 0 1 .7 1.4l-.6 2.4a1.8 1.8 0 0 1-1.7 1.4A15.5 15.5 0 0 1 4.8 5.5a1.8 1.8 0 0 1 1.8-1.7Z" />
-    </svg>
-  );
-}
-
 export default function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [downloadError, setDownloadError] = useState("");
   const closeProductsTimer = useRef<number | null>(null);
 
   const openProducts = () => {
@@ -51,8 +45,36 @@ export default function SiteHeader() {
     setProductsOpen(false);
   };
 
+  const downloadCatalogue = async () => {
+    if (downloading) return;
+    closeMenus();
+    setDownloadError("");
+    setDownloading(true);
+    try {
+      const response = await fetch("/api/catalogue");
+      if (!response.ok) {
+        setDownloadError(response.status === 404
+          ? "Catalogue PDF is not available yet. Please contact the PRC team."
+          : "Download failed. Please try again.");
+        return;
+      }
+      const url = URL.createObjectURL(await response.blob());
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "PRC-Catalogue.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 60000);
+    } catch {
+      setDownloadError("Download failed. Please check your connection and try again.");
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   return (
-    <header data-native-cursor className={`site-header${isScrolled ? " is-scrolled" : ""}${menuOpen ? " is-menu-open" : ""}`}>
+    <header className={`site-header${isScrolled ? " is-scrolled" : ""}${menuOpen ? " is-menu-open" : ""}`}>
       <div className="header-shell">
         <Link className="brand-mark" href="/" aria-label="PRC Bath Fittings home" onClick={closeMenus}>
           <Image src="/prcNewLogo.png" alt="PRC Bath Fittings" width={250} height={124} priority />
@@ -114,11 +136,14 @@ export default function SiteHeader() {
           <Link className="nav-link" href="/contact" onClick={closeMenus}>Contact Us</Link>
         </nav>
 
-        <a className="header-contact" href="tel:+919643332209" aria-label="Call PRC Sanitary Ware at plus 91 96433 32209">
-          <span className="contact-icon"><PhoneIcon /></span>
-          <span className="contact-number">+91 96433 32209</span>
-          <span className="contact-arrow" aria-hidden="true">↗</span>
-        </a>
+        <div className="header-catalogue-wrap">
+          <button className="header-catalogue" type="button" onClick={downloadCatalogue} disabled={downloading} aria-describedby={downloadError ? "catalogue-download-status" : undefined}>
+            {downloading ? "Downloading…" : "Download Catalog"}
+          </button>
+          <div id="catalogue-download-status" className="header-catalogue-status" role="status">
+            {downloadError}
+          </div>
+        </div>
       </div>
     </header>
   );

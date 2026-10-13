@@ -1,0 +1,35 @@
+.section {
+  background: #f1eee7;
+  color: #191a17;
+  padding: clamp(40px, 6vw, 88px) 24px;
+}
+
+.inner { max-width: 1320px; margin: 0 auto; }
+.heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-bottom: 32px; flex-wrap: wrap; }
+.eyebrow { color: #876820; font-size: 11px; font-weight: 700; letter-spacing: .2em; margin: 0 0 14px; }
+.heading h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(30px, 4vw, 48px); font-weight: 400; line-height: 1.15; margin: 0 0 16px; }
+.description { color: #62625b; margin: 0; line-height: 1.7; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.primary, .secondary { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 48px; padding: 12px 20px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid #b28b3e; transition: background .2s, color .2s; }
+.primary { background: #171914; color: #f5dc96; }
+.secondary { color: #25271f; background: transparent; }
+.primary:hover, .secondary:hover { background: #e8cb80; color: #171914; }
+.primary:focus-visible, .secondary:focus-visible { outline: 3px solid #917026; outline-offset: 4px; }
+.viewer { border: 1px solid #d7d1c4; background: #fff; }
+.viewerBar { display: flex; justify-content: space-between; gap: 16px; padding: 18px 24px; background: #171914; color: #f5dc96; font-size: 13px; }
+.document { display: block; width: 100%; height: 80vh; min-height: 460px; border: 0; }
+.hint { padding: 16px 24px; margin: 0; font-size: 13px; color: #62625b; line-height: 1.6; }
+.fallback { padding: 40px 24px; text-align: center; }
+.fallback p { margin-bottom: 24px; }
+.empty { padding: clamp(36px, 6vw, 80px) 24px; text-align: center; border: 1px solid #d7d1c4; background: #faf8f2; }
+.monogram { display: inline-block; color: #947024; font-size: 42px; font-style: italic; font-weight: 800; letter-spacing: .04em; margin-bottom: 22px; }
+.empty h3 { font-family: Georgia, "Times New Roman", serif; font-size: 30px; font-weight: 400; margin: 0 0 16px; }
+.empty p { max-width: 490px; margin: 0 auto 28px; line-height: 1.8; color: #62625b; }
+.empty .actions { justify-content: center; }
+@media (max-width: 600px) {
+  .section { padding-inline: 16px; }
+  .actions { width: 100%; }
+  .primary, .secondary { width: 100%; }
+  .document { height: 65vh; min-height: 360px; }
+  .viewerBar { padding: 16px; }
+}

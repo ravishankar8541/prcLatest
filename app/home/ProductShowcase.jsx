@@ -6,13 +6,13 @@ import Image from "next/image";
 const banners = [
   {
     id: 1,
-    image: "/bannerPcr1.png",
-    alt: "Premium Quality Products",
+    image: "/branded-banners/prc-slider-faucet-logo.webp",
+    alt: "Chrome basin tap with the PRC logo: Elevate Your Bathroom with Luxury",
   },
   {
     id: 2,
-    image: "/bannerPcr2.png",
-    alt: "Trusted Products Better Business",
+    image: "/branded-banners/prc-slider-shower-logo.webp",
+    alt: "Chrome hand shower with the PRC logo: Refined Luxury in Every Drop",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function ProductShowcase() {
   }, [nextSlide]);
 
   return (
-    <section data-native-cursor className="w-full">
+    <section className="w-full">
       <div className="relative w-full overflow-hidden shadow-2xl">
         {/* Banners container */}
         <div className="relative h-auto aspect-[1791/878] lg:aspect-auto lg:h-[700px] xl:h-[800px]">

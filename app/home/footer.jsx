@@ -162,11 +162,12 @@ export default function SiteFooter() {
     { label: "About Us", href: "/about" },
     { label: "Why PRC", href: "/why-prc" },
     { label: "Products", href: "/#products" },
+    { label: "Catalogue", href: "/catalogue" },
     { label: "Contact Us", href: "/contact" },
   ];
 
   return (
-    <footer data-native-cursor className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.main}>
           <div className={styles.brand}>
@@ -224,12 +225,12 @@ export default function SiteFooter() {
               </a>
               <a href="mailto:prcsanitaryware@gmail.com" className={styles.contactItem}>
                 <span className={styles.contactIcon}><MailIcon /></span>
-                <span><span className={styles.contactLabel}>Write to us</span><span className={styles.contactValue}>prcsanitaryware@gmail.com</span></span>
+                <span><span className={styles.contactLabel}>Email us</span><span className={styles.contactValue}>prcsanitaryware@gmail.com</span></span>
               </a>
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}><LocationIcon /></span>
                 <span>
-                  <span className={styles.contactLabel}>Visit us</span>
+                  <span className={styles.contactLabel}>Visit PRC Team</span>
                   <span className={styles.contactValue}>
                     Khasra No.-23/8/2, Opposite Shakti Tent House, Railway Road,
                     Samaypur, Delhi - 110042

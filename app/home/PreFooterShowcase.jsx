@@ -3,26 +3,26 @@ import Link from "next/link";
 const showcaseItems = [
   {
     title: "C.P. Bend Shower",
-    image: "/mid2.png",
-    alt: "PRC chrome overhead bend shower",
+    image: "/branded-banners/prc-bend-shower-logo.webp",
+    alt: "Chrome overhead bend shower with the PRC logo engraved on the shower head",
     href: "/products/c-p-bend-shower-manufacturer",
   },
   {
     title: "C.P. Tap",
-    image: "/mid3.png",
-    alt: "PRC chrome basin tap",
+    image: "/branded-banners/prc-basin-tap-logo.webp",
+    alt: "Chrome basin tap with the PRC logo engraved on the lever",
     href: "/products/c-p-tap-manufacturer",
   },
   {
     title: "Kitchen Sink",
-    image: "/mid4.png",
-    alt: "PRC stainless steel kitchen sink",
+    image: "/branded-banners/prc-kitchen-sink-logo.webp",
+    alt: "Stainless steel kitchen sink with the PRC logo engraved inside the basin",
     href: "/products/kitchen-sink-manufacturer",
   },
   {
     title: "C.P. Wall Mixer",
-    image: "/mid5.png",
-    alt: "PRC chrome wall mixer tap",
+    image: "/branded-banners/prc-wall-mixer-logo.webp",
+    alt: "Chrome wall mixer tap with the PRC logo engraved on both handles",
     href: "/products/c-p-tap-manufacturer",
   },
 ];
@@ -38,7 +38,6 @@ function ArrowIcon() {
 export default function PreFooterShowcase() {
   return (
     <section
-      data-native-cursor
       className="prefooter-showcase"
       data-header-theme="light"
       aria-label="PRC premium bath fittings"
@@ -50,7 +49,7 @@ export default function PreFooterShowcase() {
             href="#products"
             aria-label="Explore PRC bathroom fittings"
           >
-            <img src="/mid1.png" alt="PRC premium bathroom fitting collection" loading="lazy" />
+            <img src="/branded-banners/prc-health-faucets-logo.webp" alt="Chrome health faucet collection with the PRC logo engraved on each handle" loading="lazy" />
           </a>
 
           <div className="prefooter-showcase__grid">

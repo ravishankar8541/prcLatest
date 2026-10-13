@@ -11,7 +11,7 @@ export default function PageBanner({ pageName, imageAlt }: PageBannerProps) {
     <section className="about-hero" aria-label={`${pageName} page banner`}>
       <Image
         className="about-hero__image"
-        src="/perPageBanner.png"
+        src="/branded-banners/prc-page-banner-logo.webp"
         alt={imageAlt}
         fill
         priority

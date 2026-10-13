@@ -125,7 +125,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section data-native-cursor className="contact-section" id="contact" aria-labelledby="contact-title">
+    <section className="contact-section" id="contact" aria-labelledby="contact-title">
       <div className="contact-shell">
         <div className="contact-topline">
           <span>CONTACT PRC</span>

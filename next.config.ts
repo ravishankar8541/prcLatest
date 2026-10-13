@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  outputFileTracingIncludes: {
+    "/api/catalogue": ["./public/catalogue/*.pdf"],
+  },
   images: {
     remotePatterns: [
       {
